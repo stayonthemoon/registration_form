@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form_wrapper">
+            <div class="background_effect"></div>
+            <h2 class="title_main">Create Account</h2>
+            <form id="registration_form" class="form_content">
+                <div class="input_group">
+                    <input type="text" id="username" class="input_field" required>
+                    <label for="username" class="input_label">Username</label>
+                </div>
+                <div class="input_group">
+                    <input type="password" id="password" class="input_field" required>
+                    <label for="password" class="input_label">Password</label>
+                    <button type="button" id="toggle_password" class="button_toggle_password">
+                        <div class="eye_icon">
+                            <div class="eye_outer"></div>
+                            <div class="eye_inner"></div>
+                            <div class="eye_line"></div>
+                        </div>
+                    </button>
+                    <div class="strength_meter">
+                        <div class="strength_bar"></div>
+                    </div>
+                    <div class="password_hints">
+                        <div class="hint" data-hint="length">At least 8 characters</div>
+                        <div class="hint" data-hint="uppercase">Contains uppercase letter</div>
+                        <div class="hint" data-hint="lowercase">Contains lowercase letter</div>
+                        <div class="hint" data-hint="number">Contains number</div>
+                        <div class="hint" data-hint="special">Contains special character</div>
+                        <div class="hint" data-hint="no_space">No spaces allowed</div>
+                    </div>
+                </div>
+                <button type="submit" id="button_register" class="button_register" disabled>Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

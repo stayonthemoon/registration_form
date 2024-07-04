@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.form_wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.background_effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: rotate(30deg) scale(1.5);
+    pointer-events: none;
+}
+
+.title_main {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 24px;
+}
+
+.form_content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input_group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input_field {
+    width: 100%;
+    padding: 10px 0;
+    padding-right: 30px;
+    /* Увеличено пространство для кнопки переключения */
+    font-size: 16px;
+    color: #1f2937;
+    border: none;
+    border-bottom: 2px solid #9ca3af;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+
+.input_label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #6b7280;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.input_field:focus~.input_label,
+.input_field:valid~.input_label {
+    top: -20px;
+    font-size: 12px;
+    color: #3b82f6;
+}
+
+.button_toggle_password {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.eye_icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye_outer,
+.eye_inner,
+.eye_line {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.eye_outer {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6b7280;
+    border-radius: 50%;
+}
+
+.eye_inner {
+    width: 8px;
+    height: 8px;
+    background: #6b7280;
+    border-radius: 50%;
+}
+
+.eye_line {
+    width: 24px;
+    height: 2px;
+    background: #6b7280;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.button_toggle_password.show .eye_line {
+    opacity: 1;
+}
+
+.strength_meter {
+    height: 4px;
+    background-color: #e5e7eb;
+    margin-top: 8px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.strength_bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.password_hints {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.hint {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.hint::before {
+    content: '•';
+    margin-right: 4px;
+    font-size: 16px;
+}
+
+.hint.valid {
+    color: #10b981;
+}
+
+.hint.valid::before {
+    content: '✓';
+}
+
+.button_register {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.button_register:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.button_register:not(:disabled):hover {
+    background: linear-gradient(to right, #7c3aed, #4f46e5);
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    filter: brightness(110%);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+.button_register:not(:disabled):hover {
+    animation: pulse 1.5s infinite;
+}
